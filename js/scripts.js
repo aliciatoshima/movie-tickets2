@@ -13,9 +13,16 @@ function Order(movie, time, age) {
 }
 
 Order.prototype.calcCost = function(time, age) {
-  if (this.time === "morning") {
+  if (this.time === "morning" || "matinee") {
     return matPrice;
-  } else {
+  }
+  else if (this.time === "") {
+    return ;
+  }
+  else if (this.time === "") {
+    return ;
+  }
+   else {
     return "error"
   }
 
