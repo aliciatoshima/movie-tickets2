@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Movie Tickets</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Ticketron</h1>
+        <p>Choose your movie experience below!</p>
+      </div>
+      <div id="blanks">
+        <form id="movieTitle">
+          <p>Choose your movie:</p>
+          <div class="movieRadio">
+            <div class="radio">
+              <label>
+                <input type="radio" name="movie" value="1" checked>
+                Apollo 11
+              </label>
+            </div>
+            <div class="radio">
+                <label>
+                  <input type="radio" name="movie" value="2">
+                  Captain Marvel
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                  <input type="radio" name="movie" value="3">
+                  Cold Pursuit
+                </label>
+            </div>
+          </div>
+          <br>
+          <div class="timeRadio">
+            <div class="radio">
+              <label>
+                <input type="radio" name="time" value="morning" checked>
+                11:30am
+              </label>
+            </div>
+            <div class="radio">
+                <label>
+                  <input type="radio" name="time" value="matinee">
+                  2:30pm
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                  <input type="radio" name="time" value="evening">
+                  7:00pm
+                </label>
+            </div>
+          </div>
+          <br>
+          <div class="ageRadio">
+            <div class="radio">
+              <label>
+                <input type="radio" name="age" value="youth" checked>
+                1-12 years old
+              </label>
+            </div>
+            <div class="radio">
+                <label>
+                  <input type="radio" name="age" value="teen">
+                  13+ years old
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                  <input type="radio" name="age" value="adult">
+                  17+ years old
+                </label>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </body>
+</html>
