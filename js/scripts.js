@@ -12,36 +12,35 @@ function Order(movie, time, age) {
 
 }
 
-Order.prototype.calcCost = function(time, age) {
-  if (this.time === "morning" || "matinee") {
+var ageRestrict = ""
+
+Order.prototype.calcCost = function(time, age, movie) {
+
+  if ((this.time === "morning" || this.time ===  "matinee") && this.age !== "youth") {
     return matPrice;
+  } else {
+     if (this.age === "youth" && this.movie === "3") {
+       ageRestrict = "You're not old enough to view this film. BUSTED."
+     } else if (this.age === "youth") {
+       return youthPrice;
+     } else {
+       return regPrice;
+     }
   }
-  else if (this.time === "") {
-    return ;
-  }
-  else if (this.time === "") {
-    return ;
-  }
-   else {
-    return "error"
-  }
-
 }
-
-//var prices = ["regPrice", "matPrice", "youthPrice"];
-
-
-// var regularPrice = function() {
-//   if (age === "adult" && movie === "1" || "2" || "3" && time === "evening")
-//     $(".ticketPrice").show(regPrice);
-// };
 
 
 //User interface logic ------------
 $(document).ready(function() {
-  //debugger;
   $("form#movieTickets").submit(function(event) {
+
     event.preventDefault();
+    //$("#ticketPrice").text("");
+    //$("#ageRestriction").empty();
+
+    // $(".priceOutput").empty();
+    //location.reload();
+
     var movie = $("input:radio[name=movie]:checked").val();
     //console.log(movie);
     var time = $("input:radio[name=time]:checked").val();
@@ -50,26 +49,12 @@ $(document).ready(function() {
     //console.log(age);
     var newOrder = new Order(movie, time, age);
     //console.log(newOrder);
-    var price = newOrder.calcCost(time, age);
+    var price = newOrder.calcCost(time, age, movie);
     $("#ticketPrice").text(price);
 
-
-
-    // var regularPrice = function() {
-    //   if (age === "adult" && movie === "1" || "2" || "3" && time === "evening") {
-    //     $("#ticketPrice").show(regPrice);
-    //   }
-    // }
-
-    // function ticketPrices() {
-    //   if (age === "adult" && movie === "1" || "2" || "3" && time === "evening") {
-    //     $("#ticketPrice").show(regPrice);
-    //     else if (age === "teen" && movie === "1" || "2" && time === "evening") {
-    //       $("#ticketPrice").show(regPrice);
-    //     else if (age === "youth" && movie === "1" && time === "") {
-    //       $("#ticketPrice").show(regPrice);
-
-
+    if (ageRestrict !== "") {
+      $("#ageRestriction").text(ageRestrict);
+    }
 
   });
 });
